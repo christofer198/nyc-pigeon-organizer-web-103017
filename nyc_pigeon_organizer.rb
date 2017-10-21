@@ -5,21 +5,21 @@ def nyc_pigeon_organizer(pigeon_data)
   value = []
 
   pigeon_data.each do |key,val|
-    val.each do |nkey,nval|  
+    val.each do |nkey,nval|
         value.push(nval)
-    end  
+    end
   end
 
   value.flatten.uniq.each do |key|
     pigeon[key] = {:color => [], :gender => [], :lives => []}
-  end  
+  end
 
   pigeon_data.each do |key,val|
-    val.each do |nkey, nval|  
-      nval.each do |bird|    
+    val.each do |nkey, nval|
+      nval.each do |bird|
           pigeon[bird][key].push(nkey.to_s)
-      end  
-    end  
+      end
+    end
   end
 
   return pigeon
